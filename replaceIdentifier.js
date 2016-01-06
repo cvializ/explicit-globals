@@ -14,7 +14,9 @@ function replace(replaceFn, ast, test, globalName) {
   var replacement = {
     'Identifier': {
       replace: function(node) {
-        return identifierNode(node, globalName);
+        if (node.name !== globalName) {
+          return identifierNode(node, globalName);
+        }
       },
       test: test
     }

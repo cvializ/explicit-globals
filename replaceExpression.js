@@ -22,7 +22,9 @@ function replace(replaceFn, ast, test, globalName) {
   var replacement = {
     'MemberExpression': {
       replace: function (node) {
-        return subMemberNode(node, globalName);
+        if (node.object.name !== globalName) {
+          return subMemberNode(node, globalName);
+        }
       },
       test: test
     }

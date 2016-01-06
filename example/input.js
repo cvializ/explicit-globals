@@ -25,6 +25,7 @@ foo(function () {
 });
 
 console.log(xyz);
+window.open(xyz);
 
 function beep() {
   function boop() {}
